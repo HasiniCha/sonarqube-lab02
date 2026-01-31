@@ -1,8 +1,12 @@
 package main.java.com.example;
 
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class App {
+
+    private static final Logger logger = Logger.getLogger(App.class.getName());
 
     public static void main(String[] args) {
         try {
@@ -13,7 +17,7 @@ public class App {
             service.findUser("admin");
             service.deleteUser("admin");
         } catch (SQLException e) {
-            System.err.println("Database error: " + e.getMessage());
+            logger.log(Level.SEVERE, "Database error occurred", e);
         }
     }
 }
