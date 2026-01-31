@@ -16,6 +16,7 @@ public class UserService {
 
     // FIXED: Using PreparedStatement to prevent SQL injection
     // FIXED: Specific columns instead of SELECT *
+    // FIXED: Using SQLException instead of generic Exception
     public void findUser(String username) throws SQLException {
         String query = "SELECT id, name, email FROM users WHERE name = ?";
         
@@ -28,6 +29,7 @@ public class UserService {
     }
 
     // FIXED: Using PreparedStatement to prevent SQL injection
+    // FIXED: Using SQLException instead of generic Exception
     public void deleteUser(String username) throws SQLException {
         String query = "DELETE FROM users WHERE name = ?";
         
